@@ -1,0 +1,10 @@
+Feature List:
+1. See all students
+2. See all assignments
+3. See all grades
+4. Add a new student
+5. Add a new assignment
+6. Add a grade for a student for an assignment
+7. Delete a student but not his/her grades
+8. Delete an assignment but not the grades for it
+9. Update student data (name and group)

@@ -1,24 +1,55 @@
 package ssvv.example;
 
 import junit.framework.Test;
-import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import ssvv.example.domain.Student;
+import ssvv.example.repository.StudentRepository;
+import ssvv.example.validation.StudentValidator;
+
+import static junit.framework.Assert.*;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
+public class AppTest
 {
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
+
+    public StudentRepository studentRepository;
+
+    public Student student;
+    public AppTest(  )
     {
-        super( testName );
+//        super( testName );
+        studentRepository = new StudentRepository(new StudentValidator());
     }
+
+    @Test
+    public void tc_valid_studentID(){
+        student = new Student("1", "name student", 937);
+        try{
+            studentRepository.save(student);
+            assertTrue(true);
+        }catch (Exception ex){
+            fail();
+        }
+    }
+
+    @Test
+    public void tc_invalid_studentID(){
+        student = new Student("", "name student", 937);
+        try{
+            studentRepository.save(student);
+            fail();
+        }catch (Exception ex){
+            assertTrue(true);
+        }
+    }
+
 
     /**
      * @return the suite of tests being tested
