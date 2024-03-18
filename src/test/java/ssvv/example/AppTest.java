@@ -1,7 +1,9 @@
 package ssvv.example;
-
-import junit.framework.Test;
+//
+//import junit.framework.Test;
+//import junit.framework.TestSuite;
 import junit.framework.TestSuite;
+import org.junit.jupiter.api.Test;
 import ssvv.example.domain.Student;
 import ssvv.example.repository.StudentRepository;
 import ssvv.example.validation.StudentValidator;
@@ -54,7 +56,7 @@ public class AppTest
     /**
      * @return the suite of tests being tested
      */
-    public static Test suite()
+    public static TestSuite suite()
     {
         return new TestSuite( AppTest.class );
     }
