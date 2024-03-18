@@ -19,13 +19,13 @@ public class AppTest {
      * @param testName name of the test case
      */
 
-    public StudentRepository studentRepository;
+    public StudentRepository studentRepository = new StudentRepository(new StudentValidator());
 
     public Student student;
 
     public AppTest() {
 //        super( testName );
-        studentRepository = new StudentRepository(new StudentValidator());
+//        studentRepository = new StudentRepository(new StudentValidator());
     }
 
     @Test
@@ -50,17 +50,17 @@ public class AppTest {
     }
 
 
-    /**
-     * @return the suite of tests being tested
-     */
-//    public static Test suite() {
-//        return (Test) new TestSuite(AppTest.class);
+//    /**
+//     * @return the suite of tests being tested
+//     */
+////    public static Test suite() {
+////        return (Test) new TestSuite(AppTest.class);
+////    }
+//
+//    /**
+//     * Rigourous Test :-)
+//     */
+//    public void testApp() {
+//        assertTrue(true);
 //    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp() {
-        assertTrue(true);
-    }
 }
