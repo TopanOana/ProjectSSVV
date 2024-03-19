@@ -2,14 +2,14 @@ package ssvv.example;
 
 
 
-import org.junit.Test;
+
 import ssvv.example.domain.Student;
 import ssvv.example.repository.StudentRepository;
 import ssvv.example.validation.StudentValidator;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
+import org.junit.Test;
 
 /**
  * Unit test for simple App.
