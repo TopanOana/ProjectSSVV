@@ -1,7 +1,7 @@
 package ssvv.example;
 
 
-import junit.framework.TestSuite;
+
 import org.junit.Test;
 import ssvv.example.domain.Student;
 import ssvv.example.repository.StudentRepository;
