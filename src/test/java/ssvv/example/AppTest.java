@@ -51,6 +51,46 @@ public class AppTest {
 
     }
 
+    @Test
+    public void tc_8(){
+        student = new Student("8", "name", 111);
+//        Student val = studentRepository.save(student);
+        if (studentRepository.save(student) == null)
+            fail();
+        else assertTrue(true);
+    }
+
+    @Test
+    public void tc_9(){
+        student = new Student("9", "name", 112);
+        if (studentRepository.save(student) == null)
+            fail();
+        else assertTrue(true);
+    }
+
+    @Test
+    public void tc_10(){
+        student = new Student("10", "name", 936);
+        if (studentRepository.save(student) == null)
+            fail();
+        else assertTrue(true);
+    }
+
+    @Test
+    public void tc_11(){
+        student = new Student("11", "name", 937);
+        if (studentRepository.save(student) == null)
+            fail();
+        else assertTrue(true);
+    }
+
+    @Test
+    public void tc_12(){
+        student = new Student("12", "name", 938);
+        if (studentRepository.save(student) == null)
+            assertTrue(true);
+        else fail();
+    }
 
 //    /**
 //     * @return the suite of tests being tested
