@@ -7,7 +7,9 @@ import ssvv.example.domain.Student;
 import ssvv.example.repository.StudentRepository;
 import ssvv.example.validation.StudentValidator;
 
-import static junit.framework.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 
 /**
  * Unit test for simple App.
