@@ -92,6 +92,15 @@ public class AppTest {
         else fail();
     }
 
+    @Test
+    public void tc_13(){
+        student = new Student("test", "name", 926);
+        studentRepository.save(student);
+        if (studentRepository.save(student)==null)
+            assertTrue(true);
+        else fail();
+    }
+
 //    /**
 //     * @return the suite of tests being tested
 //     */
