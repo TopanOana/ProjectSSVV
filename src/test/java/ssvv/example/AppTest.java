@@ -1,15 +1,13 @@
 package ssvv.example;
 
 
-
-
+import org.junit.Test;
 import ssvv.example.domain.Student;
 import ssvv.example.repository.StudentRepository;
 import ssvv.example.validation.StudentValidator;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Unit test for simple App.
@@ -22,7 +20,6 @@ public class AppTest {
      */
 
     public StudentRepository studentRepo = new StudentRepository(new StudentValidator());
-
     public Student student;
 
     public AppTest() {
@@ -58,6 +55,7 @@ public class AppTest {
             assertTrue(true);
         else fail();
     }
+
     @Test
     public void tc_4() {
         student = new Student("4", "name", 937);
@@ -83,7 +81,7 @@ public class AppTest {
     }
 
     @Test
-    public void tc_7(){
+    public void tc_7() {
         student = new Student("7", "name", 110);
         if (studentRepo.save(student) == null)
             assertTrue(true);
@@ -91,7 +89,7 @@ public class AppTest {
     }
 
     @Test
-    public void tc_8(){
+    public void tc_8() {
         student = new Student("8", "name", 111);
 //        Student val = studentRepository.save(student);
         if (studentRepo.save(student) == null)
@@ -100,7 +98,7 @@ public class AppTest {
     }
 
     @Test
-    public void tc_9(){
+    public void tc_9() {
         student = new Student("9", "name", 112);
         if (studentRepo.save(student) == null)
             fail();
@@ -108,7 +106,7 @@ public class AppTest {
     }
 
     @Test
-    public void tc_10(){
+    public void tc_10() {
         student = new Student("10", "name", 936);
         if (studentRepo.save(student) == null)
             fail();
@@ -116,7 +114,7 @@ public class AppTest {
     }
 
     @Test
-    public void tc_11(){
+    public void tc_11() {
         student = new Student("11", "name", 937);
         if (studentRepo.save(student) == null)
             fail();
@@ -124,7 +122,7 @@ public class AppTest {
     }
 
     @Test
-    public void tc_12(){
+    public void tc_12() {
         student = new Student("12", "name", 938);
         if (studentRepo.save(student) == null)
             assertTrue(true);
@@ -132,13 +130,15 @@ public class AppTest {
     }
 
     @Test
-    public void tc_13(){
+    public void tc_13() {
         student = new Student("test", "name", 926);
         studentRepo.save(student);
-        if (studentRepo.save(student)==null)
+        if (studentRepo.save(student) == null)
             assertTrue(true);
         else fail();
     }
+
+
 
 
 }
