@@ -35,4 +35,11 @@ public class WBTTest {
             assertTrue(true);
         else fail();
     }
+
+    @Test
+    public void tc_3(){
+        if (service.saveTema("1", "desc", 7, 10) == 0){
+            assertTrue(true);
+        }else fail();
+    }
 }
