@@ -48,4 +48,45 @@ public class IntegrationTests {
         tc_2();
         tc_3();
     }
+
+    @Test
+    public void tc_5(){
+        //add valid student
+        service.deleteStudent("1");
+        if (service.saveStudent("1", "new name", 937) == 1)
+            assertTrue(true);
+        else fail();
+    }
+
+    @Test
+    public void tc_6(){
+        //add valid assignment
+        service.deleteTema("1");
+        if (service.saveTema("1", "description", 10, 6) == 1)
+            assertTrue(true);
+        else fail();
+    }
+
+    @Test
+    public void tc_7(){
+        //add valid grade
+        service.deleteGrade("1", "1");
+        if (service.saveNota("1", "1", 10, 7, "super") == 1)
+            assertTrue(true);
+        else fail();
+    }
+
+    @Test
+    public void tc_8(){
+        //integration test add student + add assignment
+        tc_5();
+        tc_6();
+    }
+
+    @Test
+    public void tc_9(){
+        tc_5();
+        tc_6();
+        tc_7();
+    }
 }

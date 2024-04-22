@@ -49,7 +49,7 @@ public abstract class AbstractCRUDRepository<ID, E extends HasID<ID>> implements
     @Override
     public E delete(ID id) {
         if (id == null) {
-            throw new IllegalArgumentException("ID-ul nu poate fi nul! \n");
+            throw new IllegalArgumentException("ID-ul nu poate fi null! \n");
         }
         else {
             return entities.remove(id);

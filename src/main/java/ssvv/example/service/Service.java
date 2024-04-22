@@ -18,11 +18,17 @@ public class Service {
         this.notaXmlRepo = notaXmlRepo;
     }
 
-    public Iterable<Student> findAllStudents() { return studentXmlRepo.findAll(); }
+    public Iterable<Student> findAllStudents() {
+        return studentXmlRepo.findAll();
+    }
 
-    public Iterable<Tema> findAllTeme() { return temaXmlRepo.findAll(); }
+    public Iterable<Tema> findAllTeme() {
+        return temaXmlRepo.findAll();
+    }
 
-    public Iterable<Nota> findAllNote() { return notaXmlRepo.findAll(); }
+    public Iterable<Nota> findAllNote() {
+        return notaXmlRepo.findAll();
+    }
 
     public int saveStudent(String id, String nume, int grupa) {
         Student student = new Student(id, nume, grupa);
@@ -47,19 +53,20 @@ public class Service {
     public int saveNota(String idStudent, String idTema, double valNota, int predata, String feedback) {
         if (studentXmlRepo.findOne(idStudent) == null || temaXmlRepo.findOne(idTema) == null) {
             return -1;
-        }
-        else {
+        } else {
             int deadline = temaXmlRepo.findOne(idTema).getDeadline();
 
             if (predata - deadline > 2) {
-                valNota =  1;
+                valNota = 1;
             } else {
-                valNota =  valNota - 2.5 * (predata - deadline);
+                if (predata - deadline > 0) {
+                    valNota = valNota - 2.5 * (predata - deadline);
+                }
             }
             Nota nota = new Nota(new Pair(idStudent, idTema), valNota, predata, feedback);
             Nota result = notaXmlRepo.save(nota);
 
-            if (result == null) {
+            if (result != null) {
                 return 1;
             }
             return 0;
@@ -78,6 +85,14 @@ public class Service {
     public int deleteTema(String id) {
         Tema result = temaXmlRepo.delete(id);
 
+        if (result == null) {
+            return 0;
+        }
+        return 1;
+    }
+
+    public int deleteGrade(String idStud, String idAssign){
+        Nota result = notaXmlRepo.delete(new Pair(idStud, idAssign));
         if (result == null) {
             return 0;
         }
